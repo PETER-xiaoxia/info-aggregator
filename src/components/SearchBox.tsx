@@ -23,11 +23,12 @@ export default function SearchBox({ value, onChange, placeholder = "搜索内容
           onFocus={() => setIsFocused(true)}
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
-          className={`w-full px-4 py-2 text-sm rounded-full border transition-all duration-200 ${
+          className={`w-full px-4 py-2 text-base rounded-full border transition-all duration-200 ${
             isFocused
               ? 'bg-white border-wechat-primary shadow-sm'
               : 'bg-background-secondary border-border-light'
           } placeholder-text-tertiary focus:outline-none`}
+          style={{ fontSize: '16px' }}
         />
         <div className="absolute right-3 top-1/2 transform -translate-y-1/2">
           <span className="text-text-tertiary text-sm">🔍</span>
