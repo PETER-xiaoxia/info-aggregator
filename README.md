@@ -1,13 +1,13 @@
 # 信息聚合站 MVP
 
-移动端优先的静态信息聚合网站，采用微信风格设计，提供游戏、软件、影视等资源的一站式链接分享。
+移动端优先的静态信息聚合网站，采用微信风格设计，提供游戏、软件、影视等内容的便捷访问。
 
 ## 功能特性
 
 ### 核心功能
 - ✅ 底部导航栏（首页、常见问题、我的）
 - ✅ 四个主要分类：游戏、软件、影视、其他
-- ✅ 资源列表展示和一键复制功能
+- ✅ 内容列表展示和便捷访问功能
 - ✅ 实时搜索和智能分类切换
 - ✅ Toast 提示消息
 - ✅ 响应式设计（移动端优先）
@@ -56,13 +56,13 @@ src/
 │   │   ├── BottomNavigation.tsx
 │   │   └── PageLayout.tsx
 │   ├── CategoryCard.tsx   # 分类卡片
-│   ├── ResourceCard.tsx   # 资源卡片
+│   ├── ResourceCard.tsx   # 内容卡片
 │   ├── SearchBox.tsx      # 搜索框
 │   ├── CopyButton.tsx     # 复制按钮
 │   ├── Toast.tsx         # 提示消息
 │   └── FAQItem.tsx       # 常见问题项
 ├── data/                 # 静态数据
-│   └── resources.ts      # 资源和FAQ数据
+│   └── resources.ts      # 内容和FAQ数据
 └── types/               # TypeScript 类型定义
     └── index.ts
 ```
@@ -85,7 +85,7 @@ src/
 
 ### 1. 分类切换
 - 默认选中游戏分类
-- 点击分类卡片切换资源列表
+- 点击分类卡片切换内容列表
 - 选中状态的视觉反馈
 
 ### 2. 搜索功能
@@ -105,7 +105,7 @@ src/
 
 ## 数据结构
 
-### 资源接口
+### 内容接口
 ```typescript
 interface Resource {
   id: string;

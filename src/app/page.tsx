@@ -160,8 +160,8 @@ export default function Home() {
             </div>
             <div className="p-4">
               <p className="text-text-secondary text-sm leading-relaxed">
-                信息聚合站致力于为用户提供便捷的链接分享服务，
-                采用简洁的微信风格设计，支持快速搜索和一键复制功能。
+                信息聚合站致力于为用户提供便捷的内容聚合服务，
+                采用简洁的微信风格设计，支持快速搜索和便捷访问。
               </p>
             </div>
           </div>
