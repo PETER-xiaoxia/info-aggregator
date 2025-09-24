@@ -132,7 +132,7 @@ export default function Home() {
             </div>
             <h3 className="font-semibold text-text-primary mb-2">欢迎使用信息聚合站</h3>
             <p className="text-text-secondary text-sm">
-              一站式资源链接分享平台
+              信息聚合服务平台
             </p>
           </div>
         </div>
