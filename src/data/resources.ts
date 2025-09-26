@@ -30,27 +30,27 @@ export const categories: Category[] = [
 export const resources: Resource[] = [
   {
     id: '1',
-    name: '王者荣耀安装包',
-    description: 'MOBA手游，5v5竞技对战',
-    url: 'https://pan.quark.cn/s/9a2af34ff3ca',
+    name: '樱花校园模拟器',
+    description: '樱花校园模拟器',
+    url: 'https://pan.xunlei.com/s/VOa-0PmkvYi79mLPrNwh0ushA1?pwd=ierz#',
     category: 'game',
     featured: true,
     addedDate: '2025-09-23'
   },
   {
     id: '2',
-    name: '原神PC版',
-    description: '开放世界冒险游戏',
-    url: 'https://pan.baidu.com/s/1a2b3c4d5e6f',
+    name: '我的世界珍妮模组手机版',
+    description: '我的世界珍妮模组手机版',
+    url: 'https://pan.xunlei.com/s/VOa-0ZUkA6wW0tTShVqkRSSpA1?pwd=bb7u# ',
     category: 'game',
     featured: false,
     addedDate: '2025-09-23'
   },
   {
     id: '3',
-    name: '和平精英辅助工具',
-    description: '战术竞技射击手游',
-    url: 'https://pan.123.com/s/abc123def',
+    name: '清洁工传说V2.01',
+    description: '清洁工传说V2.01',
+    url: 'https://pan.xunlei.com/s/VOa3NtoYgeYJKZkz5KOuU2PwA1?pwd=hhrr#',
     category: 'game',
     featured: false,
     addedDate: '2025-09-23'
