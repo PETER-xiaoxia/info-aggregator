@@ -2,6 +2,7 @@
 
 import { FAQ } from '@/types';
 import { useState } from 'react';
+import { trackEvent } from '@/utils/analytics';
 
 interface FAQItemProps {
   faq: FAQ;
@@ -10,10 +11,20 @@ interface FAQItemProps {
 export default function FAQItem({ faq }: FAQItemProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const handleToggle = () => {
+    const newState = !isExpanded;
+    setIsExpanded(newState);
+
+    // Track FAQ expand events
+    if (newState) {
+      trackEvent.faqExpand(faq.id, faq.question);
+    }
+  };
+
   return (
     <div className="bg-white rounded-lg border border-border-light mb-3 overflow-hidden">
       <button
-        onClick={() => setIsExpanded(!isExpanded)}
+        onClick={handleToggle}
         className="w-full px-4 py-4 text-left flex items-center justify-between hover:bg-gray-50 transition-colors duration-200 min-h-[44px]"
       >
         <span className="font-medium text-text-primary pr-4">{faq.question}</span>

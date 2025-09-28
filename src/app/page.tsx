@@ -3,6 +3,7 @@
 import { useState, useMemo, useEffect } from 'react';
 import { CategoryId, Page, Resource } from '@/types';
 import { categories, resources, faqs } from '@/data/resources';
+import { trackEvent } from '@/utils/analytics';
 import BottomNavigation from '@/components/Layout/BottomNavigation';
 import PageLayout from '@/components/Layout/PageLayout';
 import CategoryCard from '@/components/CategoryCard';
@@ -53,8 +54,32 @@ export default function Home() {
     setToast({ show: false, message: '' });
   };
 
-  const handleCopy = () => {
+  const handleCopy = (resource: Resource) => {
+    trackEvent.contentAccess(resource.name, resource.category, resource.url);
     showToast('正在跳转...');
+  };
+
+  const handleCategoryChange = (categoryId: CategoryId) => {
+    const category = categories.find(c => c.id === categoryId);
+    if (category) {
+      trackEvent.categorySwitch(categoryId, category.name);
+    }
+    setSelectedCategory(categoryId);
+  };
+
+  const handlePageChange = (page: Page) => {
+    trackEvent.pageSwitch(currentPage, page);
+    setCurrentPage(page);
+  };
+
+  const handleSearch = (query: string) => {
+    setSearchQuery(query);
+    if (query.trim()) {
+      // Track search after results are calculated
+      setTimeout(() => {
+        trackEvent.search(query, filteredResources.length);
+      }, 100);
+    }
   };
 
   const renderHomePage = () => (
@@ -62,7 +87,7 @@ export default function Home() {
       <div className="pt-6">
         <SearchBox
           value={searchQuery}
-          onChange={setSearchQuery}
+          onChange={handleSearch}
           placeholder="搜索内容..."
         />
 
@@ -74,7 +99,7 @@ export default function Home() {
                 key={category.id}
                 category={category}
                 isSelected={selectedCategory === category.id}
-                onClick={setSelectedCategory}
+                onClick={handleCategoryChange}
               />
             ))}
           </div>
@@ -100,7 +125,7 @@ export default function Home() {
                 <ResourceCard
                   key={resource.id}
                   resource={resource}
-                  onCopy={handleCopy}
+                  onCopy={() => handleCopy(resource)}
                 />
               ))}
             </div>
@@ -186,7 +211,7 @@ export default function Home() {
 
       <BottomNavigation
         currentPage={currentPage}
-        onPageChange={setCurrentPage}
+        onPageChange={handlePageChange}
       />
 
       <Toast
